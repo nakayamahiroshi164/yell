@@ -1,0 +1,2 @@
+module WeightlossesHelper
+end

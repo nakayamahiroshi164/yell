@@ -1,0 +1,10 @@
+<div class="contents row">
+  <% @weightlosses.each do |weightloss| %>
+    <div class="content_post" >
+      <p><%= weightloss.weight %></p>
+      <span class="sleep">
+        <%= weightloss.sleep %>
+      </span>
+    </div>
+  <% end %>
+</div>

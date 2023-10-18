@@ -1,0 +1,2 @@
+class Weightloss < ApplicationRecord
+end
