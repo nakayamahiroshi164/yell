@@ -20,7 +20,10 @@
 - https://docs.google.com/spreadsheets/d/1Pkzu1Bf1MQARXsFftZpDt58O6AoaSiZt/edit#gid=80442722
 
 # DB設計
+[![Image from Gyazo](https://i.gyazo.com/296a8c40b60648ae494e4acafaf5ca21.png)](https://gyazo.com/296a8c40b60648ae494e4acafaf5ca21)
+
 ## usersテーブル
+
 | Column | Type | Option |
 |-|-|-|
 | id(PK) | integer | null: false |      
@@ -56,3 +59,6 @@
 
 - belongs_to :user
 - belongs_to :weightloss
+
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/0c258891a10bb4ff434cfb8bbeb757dd.png)](https://gyazo.com/0c258891a10bb4ff434cfb8bbeb757dd)
