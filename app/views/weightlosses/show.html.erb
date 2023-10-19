@@ -3,7 +3,7 @@
     <div class="weightloss__wrapper">
       <p class="weightloss__hedding">
       </p>
-      <%= link_to @.user.name, @weightloss.user, class: :weightloss__user %>
+      <%= link_to @weightloss.user.name,  class: :weightloss__user %>
      <% if user_signed_in? && current_user.id == @weightloss.user_id %>
         <div class="weightloss__manage">
           <%= link_to "編集する", edit_weightloss_path(@weightloss), class: :weightloss__btn %>
@@ -16,13 +16,13 @@
         <div class="weightloss__detail">
           <p class="detail__title">体重</p>
           <p class="detail__message">
-            <%= @weightloss.weight %>
+            <%= @weightloss.weight %><%= "kg" %>
           </p>
         </div>
         <div class="weightloss__detail">
           <p class="detail__title">睡眠時間</p>
           <p class="detail__message">
-            <%= @weightloss.sleep %>
+            <%= @weightloss.sleep %><%= "" %>
           </p>
         </div>
       </div>
@@ -61,7 +61,7 @@
           <% @weightloss.comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.content%>
-              <%= link_to comment.user.name, comment.user, class: :comment_user %> 
+              <%= link_to comment.user.name, class: :comment_user %> 
             </li>
              </ul>
         <% end %>

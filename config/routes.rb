@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :weightlosses do
     resources :comments, only: :create
   end
-  resources :users, only: :show
+  resources :users
+
 end

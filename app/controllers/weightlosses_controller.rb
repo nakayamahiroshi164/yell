@@ -44,7 +44,7 @@ class WeightlossesController < ApplicationController
   end
 
   def destroy
-    @weightloss = weightloss.find(params[:id])
+    @weightloss = Weightloss.find(params[:id])
     @weightloss.destroy
     redirect_to '/'
   end

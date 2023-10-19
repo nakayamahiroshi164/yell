@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_19_094316) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_19_105920) do
+  create_table "comments", charset: "utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "weightloss_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["weightloss_id"], name: "index_comments_on_weightloss_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -36,5 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_094316) do
     t.index ["user_id"], name: "index_weightlosses_on_user_id"
   end
 
+  add_foreign_key "comments", "users"
+  add_foreign_key "comments", "weightlosses"
   add_foreign_key "weightlosses", "users"
 end
