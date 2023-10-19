@@ -1,0 +1,35 @@
+<%= form_with model: weightloss, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "減量情報投稿" %><br />
+    <%= f.text_field :weight, id:"weightloss_weight" %>
+  </div>
+
+<div class="field">
+    <%= f.label :weight, "体重(kg)" %><br />
+    <%= f.text_field :weight, class: :form__text, id:"weightloss_weight" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sleep, "睡眠時間(h)" %><br />
+    <%= f.text_field :sleep, class: :form__text, id:"weightloss_sleep" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :faigue, "起床時の疲労度" %><br />
+    <%= f.text_field :faigue, class: :form__text, id:"weightloss_faigue" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exercise, "運動内容", rows: "10" %><br />
+    <%= f.text_area :exercise, id:"weightloss_exercise" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :meal, "食事内容", rows: "10" %><br />
+    <%= f.text_area :meal, id:"weightloss_meal" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

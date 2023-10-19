@@ -1,0 +1,73 @@
+<main class="main">
+  <div class="inner">
+    <div class="weightloss__wrapper">
+      <p class="weightloss__hedding">
+      </p>
+      <%= link_to @.user.name, @weightloss.user, class: :weightloss__user %>
+     <% if user_signed_in? && current_user.id == @weightloss.user_id %>
+        <div class="weightloss__manage">
+          <%= link_to "編集する", edit_weightloss_path(@weightloss), class: :weightloss__btn %>
+          <%= link_to "削除する", weightloss_path(@weightloss), data: { turbo_method: :delete }, class: :weightloss__btn %>
+        </div>
+     <% end %>
+      
+      
+      <div class="weightloss__body">
+        <div class="weightloss__detail">
+          <p class="detail__title">体重</p>
+          <p class="detail__message">
+            <%= @weightloss.weight %>
+          </p>
+        </div>
+        <div class="weightloss__detail">
+          <p class="detail__title">睡眠時間</p>
+          <p class="detail__message">
+            <%= @weightloss.sleep %>
+          </p>
+        </div>
+      </div>
+        <div class="weightloss__detail">
+          <p class="detail__title">疲労度</p>
+          <p class="detail__message">
+            <%= @weightloss.faigue %>
+          </p>
+        </div>
+        <div class="weightloss__detail">
+          <p class="detail__title">運動内容</p>
+          <p class="detail__message">
+            <%= @weightloss.exercise %>
+          </p>
+        </div>
+        <div class="weightloss__detail">
+          <p class="detail__title">食事内容</p>
+          <p class="detail__message">
+            <%= @weightloss.meal %>
+          </p>
+        </div>
+
+
+
+      <div class="weightloss__comments">
+         <% if user_signed_in? %>
+          <%= form_with model: [@weightloss, @comment], url: weightloss_comments_path(@weightloss), local: true do |f|%>
+            <div class="field">
+              <%= f.label :content, "コメント" %><br />
+              <%= f.text_field :content, id:"comment_content" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <% end %>
+        <% end %>
+        <ul class="comments_lists">
+          <% @weightloss.comments.each do |comment| %>
+            <li class="comments_list">
+              <%= comment.content%>
+              <%= link_to comment.user.name, comment.user, class: :comment_user %> 
+            </li>
+             </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
