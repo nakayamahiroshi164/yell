@@ -1,6 +1,4 @@
 class WeightlossesController < ApplicationController
- 
-
   before_action :authenticate_user!, except: [:index, :show]
  
   def index
@@ -13,7 +11,7 @@ class WeightlossesController < ApplicationController
 
   def create
     @user = current_user
-    @weightloss = Weightloss.new(prototype_params)
+    @weightloss = Weightloss.new(weightloss_params)
     @weightloss.user = @user
 
     if @weightloss.save
@@ -57,3 +55,4 @@ class WeightlossesController < ApplicationController
     params.require(:weightloss).permit(:weight, :sleep, :faigue, :exercise, :meal).merge(user_id: current_user.id)
   end
 end
+

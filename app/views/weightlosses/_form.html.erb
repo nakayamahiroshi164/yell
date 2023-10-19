@@ -1,9 +1,5 @@
 <%= form_with model: weightloss, local: true do |f|%>
-  <div class="field">
-    <%= f.label :title, "減量情報投稿" %><br />
-    <%= f.text_field :weight, id:"weightloss_weight" %>
-  </div>
-
+  
 <div class="field">
     <%= f.label :weight, "体重(kg)" %><br />
     <%= f.text_field :weight, class: :form__text, id:"weightloss_weight" %>

@@ -1,0 +1,6 @@
+<div class="card">
+  <div class="card__body">
+    <%= link_to weightloss.weight, weightloss_path(weightloss), class: :card__title%>
+    <%= link_to weightloss.user.name, user_path(weightloss.user), class: :card__user %>
+  </div>
+</div>
