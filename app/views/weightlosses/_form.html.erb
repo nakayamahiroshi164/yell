@@ -7,12 +7,12 @@
 
   <div class="field">
     <%= f.label :sleep, "睡眠時間(h)" %><br />
-    <%= f.text_field :sleep, class: :form__text, id:"weightloss_sleep" %>
+        <%= f.select :sleep, options_for_select((0..24).step(0.5).map{ |t| ["#{t}h", t] }), {}, class: 'form__dropdown', id: 'weightloss_sleep' %>
   </div>
 
   <div class="field">
     <%= f.label :faigue, "起床時の疲労度" %><br />
-    <%= f.text_field :faigue, class: :form__text, id:"weightloss_faigue" %>
+    <%= f.select :faigue, options_for_select((0..5).map{ |t| ["#{t}", t] }), {}, class: 'form__dropdown', id: 'weightloss_faigue' %>
   </div>
 
   <div class="field">
