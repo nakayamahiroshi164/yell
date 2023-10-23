@@ -64,3 +64,6 @@
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/0c258891a10bb4ff434cfb8bbeb757dd.png)](https://gyazo.com/0c258891a10bb4ff434cfb8bbeb757dd)
+
+# 開発環境
+- Ruby/Ruby on Rails/MySQL/Github/Visual Studio Code/HTML&CSS
