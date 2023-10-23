@@ -44,6 +44,8 @@
 | faigue | integer | null: false |
 | exercise | text 
 | meal | text 
+| user | references | null: false, |foreign_key: true |
+
 
 ### Association
 - belongs_to :user

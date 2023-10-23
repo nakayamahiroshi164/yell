@@ -37,7 +37,7 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: #ffffff;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -58,23 +58,23 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #0a0a0a;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #010202 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #080808;
 }
 
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #050505;
   text-decoration: none;
   user-select: none;
 }
@@ -106,8 +106,8 @@ a {
   color: #fff;
   text-decoration: none;
   user-select: none;
-  background: #87CEFA;
-  border: 1px #87CEFA solid;
+  background: #030303;
+  border: 1px #050505 solid;
   border-radius: 3px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   transition: 0.2s ease;
@@ -165,24 +165,24 @@ a {
 .prototype__wrapper{
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
+.weightloss__hedding{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
-.prototype__user{
+.weightloss__user{
   display: block;
   font-size: 16px;
   color: #999;
   text-align: center;
   text-decoration: underline;
 }
-.prototype__image{
+.weightloss__image{
   width: 40%;
   margin: 0 auto;
   padding: 16px 0;
 }
-.prototype__detail{
+.weightloss__detail{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -192,16 +192,16 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
-.prototype__manage{
+.weightloss__manage{
   display: flex;
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
+.weightloss__btn{
   display: block;
   padding: 0.4em 1.6em;
   font-size: 0.4em;
-  color: #999;
+  color: #030303;
   text-decoration: none;
   user-select: none;
   border: 1px #999 solid;
@@ -209,13 +209,13 @@ a {
   transition: 0.4s ease;
   margin: 0 4px;
 }
-.prototype__btn:hover{
+.weightloss__btn:hover{
   color: #fff;
   background: #999;
 }
 
-.prototype__comments{
-  background-color: #f6f6f6;
+.weightloss__comments{
+  background-color: #ffffff;
   padding: 20px;
   margin: 28px 0 40px 0;
 }
@@ -269,12 +269,12 @@ a {
 /* フッター */
 
 .footer {
-  background-color: #999;
+  background-color: #ffffff;
   padding: 10px 0;
 }
 .copyright {
   text-align: center;
-  color: #fff;
+  color: #040404;
   font-size: 10px;
 }
 
@@ -291,7 +291,7 @@ a {
     width: 48%;
     margin-bottom: 40px;
   }
-  .prototype_image{
+  .weightloss_image{
     width: 60%;
   }
 }
@@ -314,7 +314,7 @@ a {
   .card__summary {
     font-size: 14px;
   }
-  .prototype_image{
+  .weightloss_image{
     width: 100%;
   }
   .table{
@@ -322,5 +322,84 @@ a {
   }
 }
 
-
+/* カレンダー */
+.wrapper {
+  margin: 15px auto;
+  max-width: 700px;
+}
+.container-calendar {
+  background: #ffffff;
+  padding: 15px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+.button-container-calendar button {
+  cursor: pointer;
+  display: inline-block;
+  zoom: 1;
+  background: #00a2b7;
+  color: #fff;
+  border: 1px solid #0aa2b5;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.table-calendar {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-calendar th,
+.table-calendar td{
+  padding: 10px;
+  border: 1px solid #e2e2e2;
+  text-align: center;
+  vertical-align: top;
+}
+.date-picker.selected {
+  font-weight: bold;
+  color: #fff;
+  background: #cc0000;
+}
+.date-picker.selected span {
+  border-bottom: 2px solid currentColor;
+}
+/* 日曜 */
+.date-picker:nth-child(1) {
+color: red;
+}
+/* 土曜 */
+.date-picker:nth-child(7) {
+color: blue;
+}
+#monthAndYear {
+  text-align: center;
+  margin-top: 0;
+}
+.button-container-calendar {
+  position: relative;
+  margin-bottom: 1em;
+  overflow: hidden;
+  clear: both;
+}
+#previous {
+  float: left;
+}
+#next {
+  float: right;
+}
+.footer-container-calendar {
+  margin-top: 1em;
+  border-top: 1px solid #dadada;
+  padding: 10px 0;
+}
+.footer-container-calendar select {
+  cursor: pointer;
+  display: inline-block;
+  zoom: 1;
+  background: #ffffff;
+  color: #454545;
+  border: 1px solid #bfc5c5;
+  border-radius: 3px;
+  padding: 5px 1em;
+}
 
