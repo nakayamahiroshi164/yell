@@ -20,7 +20,7 @@
 - https://docs.google.com/spreadsheets/d/1Pkzu1Bf1MQARXsFftZpDt58O6AoaSiZt/edit#gid=80442722
 
 # DB設計
-[![Image from Gyazo](https://i.gyazo.com/296a8c40b60648ae494e4acafaf5ca21.png)](https://gyazo.com/296a8c40b60648ae494e4acafaf5ca21)
+[![Image from Gyazo](https://i.gyazo.com/001e7ec07acbdabd93618f008c6ad7a4.png)](https://gyazo.com/001e7ec07acbdabd93618f008c6ad7a4)
 
 ## usersテーブル
 
