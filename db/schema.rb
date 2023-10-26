@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_19_105920) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_072535) do
   create_table "comments", charset: "utf8", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "weightloss_id", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_105920) do
   end
 
   create_table "weightlosses", charset: "utf8", force: :cascade do |t|
-    t.integer "weight"
+    t.decimal "weight", precision: 5, scale: 1
     t.integer "sleep", null: false
     t.integer "faigue", null: false
     t.text "exercise"

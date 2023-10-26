@@ -2,7 +2,24 @@ class WeightlossesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
  
   def index
-    @weightlosses = Weightloss.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @weightlosses = @user.weightlosses
+    else
+      @weightlosses = Weightloss.all
+    end
+
+    @calendar = {} 
+    start_date = Date.current.beginning_of_month
+    end_date = Date.current.end_of_month
+
+    (start_date..end_date).each do |date|
+      weightloss = @weightlosses.find_by(created_at: date)
+      @calendar[date] = weightloss if weightloss.present?
+    end
+
+    @users = User.all
+    
   end
 
   def new

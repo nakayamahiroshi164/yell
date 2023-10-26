@@ -44,7 +44,7 @@
             <%= @weightloss.meal %>
           </p>
         </div>
-
+     
       <div class="weightloss__comments">
          <% if user_signed_in? %>
           <%= form_with model: [@weightloss, @comment], url: weightloss_comments_path(@weightloss), local: true do |f|%>
