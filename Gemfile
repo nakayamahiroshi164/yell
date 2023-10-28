@@ -73,3 +73,5 @@ end
 
 gem 'pry-rails'
 gem 'devise'
+gem "simple_calendar", "~> 2.4"
+gem 'rails-i18n'

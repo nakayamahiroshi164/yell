@@ -2,25 +2,16 @@ class WeightlossesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
  
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @weightlosses = @user.weightlosses
+    if params[:user_id].present?
+      @user = User.find_by(id: params[:user_id])
+      @weightlosses = @user&.weightlosses
     else
       @weightlosses = Weightloss.all
     end
 
-    @calendar = {} 
-    start_date = Date.current.beginning_of_month
-    end_date = Date.current.end_of_month
-
-    (start_date..end_date).each do |date|
-      weightloss = @weightlosses.find_by(created_at: date)
-      @calendar[date] = weightloss if weightloss.present?
-    end
-
     @users = User.all
-    
   end
+
 
   def new
     @weightloss = Weightloss.new
@@ -32,7 +23,7 @@ class WeightlossesController < ApplicationController
     @weightloss.user = @user
 
     if @weightloss.save
-      redirect_to weightlosses_path(@user)
+      redirect_to weightlosses_path(user_id: @user.id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -66,10 +57,8 @@ class WeightlossesController < ApplicationController
     redirect_to '/'
   end
 
-  
   private  
   def weightloss_params  
     params.require(:weightloss).permit(:weight, :sleep, :faigue, :exercise, :meal).merge(user_id: current_user.id)
   end
 end
-

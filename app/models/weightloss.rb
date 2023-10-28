@@ -5,3 +5,7 @@ class Weightloss < ApplicationRecord
   validates :sleep, presence: true
   validates :faigue, presence: true
 end
+
+def start_time
+   created_at
+ end
