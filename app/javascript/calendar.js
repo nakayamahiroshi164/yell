@@ -80,8 +80,12 @@ function showCalendar(month, year) {
         cell.setAttribute("data-year", year);
         cell.setAttribute("data-month_name", months[month]);
         cell.className = "date-picker";
-        cell.innerHTML = "<span>" + date + "</span>";
+        
+        var weightlossId = 'user_weightloss_id'; // ここに適切なWeightlossのIDを設定します
+        cell.innerHTML = `<a href="/weightlosses/${weightlossId}" class="detail-link">${date}</a>`; // 詳細ページへのリンクを追加
 
+        
+        
         if (
           date === today.getDate() &&
           year === today.getFullYear() &&
@@ -101,3 +105,34 @@ function showCalendar(month, year) {
 function daysInMonth(iMonth, iYear) {
   return 32 - new Date(iYear, iMonth, 32).getDate();
 }
+
+function post() {
+  const nextButton = document.getElementById("next");
+  const previousButton = document.getElementById("previous");
+  const yearSelect = document.getElementById("year");
+  const monthSelect = document.getElementById("month");
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      next();
+    });
+  }
+
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      previous();
+    });
+  }
+
+  if (yearSelect && monthSelect) {
+    yearSelect.addEventListener("change", () => {
+      jump();
+    });
+
+    monthSelect.addEventListener("change", () => {
+      jump();
+    });
+  }
+}
+
+window.addEventListener('load', post);
