@@ -33,17 +33,27 @@ class WeightlossesController < ApplicationController
     @weightloss = Weightloss.find(params[:id])
     @comment = Comment.new
     @comments = @weightloss.comments.includes(:user)
+
+    unless user_signed_in?
+      redirect_to weightlosses_path, alert: "ログインしてください。"
+    end
   end
+
 
   def edit
     @weightloss = Weightloss.find(params[:id])
-    unless user_signed_in?
-      redirect_to action: :index
+    unless @weightloss.user == current_user
+      redirect_to action: :index, alert: "権限がありません。"
     end
   end
 
   def update
     @weightloss = Weightloss.find(params[:id])
+    unless @weightloss.user == current_user
+      redirect_to action: :index, alert: "権限がありません。"
+      return
+    end
+
     if @weightloss.update(weightloss_params)
       redirect_to weightloss_path(@weightloss)
     else
@@ -53,6 +63,11 @@ class WeightlossesController < ApplicationController
 
   def destroy
     @weightloss = Weightloss.find(params[:id])
+    unless @weightloss.user == current_user
+      redirect_to action: :index, alert: "権限がありません。"
+      return
+    end
+
     @weightloss.destroy
     redirect_to '/'
   end

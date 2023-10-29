@@ -3,7 +3,7 @@
     <div class="weightloss__wrapper">
       <p class="weightloss__hedding">
       </p>
-      <%= link_to @weightloss.user.name,  class: :weightloss__user %>
+     <p class="weightloss__user"><%= @weightloss.user.name %>の減量情報</p>
      <% if user_signed_in? && current_user.id == @weightloss.user_id %>
         <div class="weightloss__manage">
           <%= link_to "編集する", edit_weightloss_path(@weightloss), class: :weightloss__btn %>
@@ -61,7 +61,7 @@
           <% @weightloss.comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.content%>
-              <%= link_to comment.user.name, class: :comment_user %> 
+              <span class="comment_user"><%= comment.user.name %></span>
             </li>
              </ul>
         <% end %>
