@@ -4,8 +4,8 @@ class Weightloss < ApplicationRecord
   validates :weight, presence: true, format: { with: /\A\d+(\.\d{1})?\z/, message: "は正しい形式で入力してください。" }
   validates :sleep, presence: true
   validates :faigue, presence: true
-end
 
-def start_time
-   created_at
- end
+  def start_time
+    created_at
+  end
+end

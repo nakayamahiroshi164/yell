@@ -13,32 +13,20 @@
         <% if user %>
           <h2><%= user.name %>の減量情報</h2>
           <% @weightlosses.where(user_id: params[:user_id]).each do |weightloss| %>
-            <div>
-              <%= link_to weightloss_path(weightloss) do %>
-                <%= weightloss.created_at.day %>
-              <% end %>
-            </div>
+            
           <% end %>
         <% end %>
       <% else %>
         <p>パスワードが正しくありません。</p>
       <% end %>
-
-      <!-- 新しいコードを挿入 -->
-      <% @weightlosses.each do |weightloss| %>
-        <%= link_to weightloss_path(weightloss), class: "calendar-link" do %>
-          <%= weightloss.created_at.day %>
-        <% end %>
-      <% end %>
-      <!-- ここまで新しいコード -->
-
+     
       <%= month_calendar do |date| %>
         <%= date.day %>
-        <% weightloss = @weightlosses.find_by(created_at: date) %>
+        <% weightloss = @weightlosses.find_by(created_at: date.beginning_of_day..date.end_of_day) %>
         <% if weightloss && current_user&.valid_password?(params[:password]) %>
           <div>
             <%= link_to weightloss_path(weightloss) do %>
-              View Details
+              情報あるよ
             <% end %>
           </div>
         <% end %>
@@ -48,3 +36,4 @@
   <div class="card__wrapper">
   </div>
 </main>
+
