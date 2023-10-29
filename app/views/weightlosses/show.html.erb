@@ -6,8 +6,8 @@
       <%= link_to @weightloss.user.name,  class: :weightloss__user %>
      <% if user_signed_in? && current_user.id == @weightloss.user_id %>
         <div class="weightloss__manage">
-          <%= link_to "戻る", weightlosses_path, class: "weightloss__btn" %>
           <%= link_to "編集する", edit_weightloss_path(@weightloss), class: :weightloss__btn %>
+          <%= link_to "戻る", weightlosses_path, class: "weightloss__btn" %>
           <%= link_to "削除する", weightloss_path(@weightloss), data: { turbo_method: :delete }, class: :weightloss__btn %>
         </div>
      <% end %>

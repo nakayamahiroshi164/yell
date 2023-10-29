@@ -4,10 +4,11 @@
       <div class="user-selector">
         <%= form_with url: weightlosses_path, method: :get, id: "user-selector-form", data: { turbo: false } do %>
           <%= select_tag :user_id, options_from_collection_for_select(@users, :id, :name), prompt: "選手を選択" %>
+          <%= password_field_tag :password, nil, placeholder: "パスワード入力" %>
           <%= submit_tag "選択" %>
         <% end %>
       </div>
-      <% if params[:user_id].present? %>
+      <% if params[:user_id].present? && current_user&.valid_password?(params[:password]) %>
         <% user = User.find_by(id: params[:user_id]) %>
         <% if user %>
           <h2><%= user.name %>の減量情報</h2>
@@ -20,25 +21,22 @@
           <% end %>
         <% end %>
       <% else %>
-        <% @weightlosses.each do |weightloss| %>
-        <% end %>
+        <p>パスワードが正しくありません。</p>
       <% end %>
      
       <%= month_calendar do |date| %>
         <%= date.day %>
         <% weightloss = @weightlosses.find_by(created_at: date) %>
-        <% if weightloss %>
+        <% if weightloss && current_user&.valid_password?(params[:password]) %>
           <div>
             <%= link_to weightloss_path(weightloss) do %>
               View Details
             <% end %>
           </div>
         <% end %>
-     <% end %>
-      </div>
+      <% end %>
     </div>
-    <div class="card__wrapper">
-     
-    </div>
+  </div>
+  <div class="card__wrapper">
   </div>
 </main>
