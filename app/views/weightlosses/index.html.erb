@@ -23,7 +23,15 @@
       <% else %>
         <p>パスワードが正しくありません。</p>
       <% end %>
-     
+
+      <!-- 新しいコードを挿入 -->
+      <% @weightlosses.each do |weightloss| %>
+        <%= link_to weightloss_path(weightloss), class: "calendar-link" do %>
+          <%= weightloss.created_at.day %>
+        <% end %>
+      <% end %>
+      <!-- ここまで新しいコード -->
+
       <%= month_calendar do |date| %>
         <%= date.day %>
         <% weightloss = @weightlosses.find_by(created_at: date) %>
