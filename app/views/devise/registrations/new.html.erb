@@ -2,9 +2,20 @@
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">ユーザー新規登録</h2>
-        <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
-<div class="field">
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
           <%= f.label :name, "ユーザー名" %><br />
           <%= f.text_field :name, id:"user_name" %>
         </div>
@@ -14,7 +25,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.label :password, "パスワード（半角数字6字以上30字以内）" %><br />
           <%= f.password_field :password, id:"user_password", autocomplete: "new-password" %>
         </div>
 

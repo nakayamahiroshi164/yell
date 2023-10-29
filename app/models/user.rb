@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :comments
        
   validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true, length: { minimum: 6, maximum: 30 }
+  validates :password_confirmation, presence: true, length: { minimum: 6, maximum: 30 }
 end
