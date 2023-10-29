@@ -30,7 +30,7 @@
   トップページで見たい選手をプルダウンで指定して、パスワード入力（ログインパスワードと同じ）する事で投稿一覧が表示されます
 - [![Image from Gyazo](https://i.gyazo.com/ea7b0c9b137e4ff30f560fc6a031993f.png)](https://gyazo.com/ea7b0c9b137e4ff30f560fc6a031993f)
 - [![Image from Gyazo](https://i.gyazo.com/f0e9206419d807653ca3ced518345cd4.png)](https://gyazo.com/f0e9206419d807653ca3ced518345cd4)
-- [![Image from Gyazo](https://i.gyazo.com/90988e3a80ece57f65362ca7eb6dcea3.png)](https://gyazo.com/90988e3a80ece57f65362ca7eb6dcea3)
+- [![Image from Gyazo](https://i.gyazo.com/a076dfce637c6f2a960b13901a30713e.png)](https://gyazo.com/a076dfce637c6f2a960b13901a30713e)
 
 # 今後実装したい機能
 - 体重の増減グラフ
