@@ -18,14 +18,18 @@ class WeightlossesController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @weightloss = Weightloss.new(weightloss_params)
-    @weightloss.user = @user
-
-    if @weightloss.save
-      redirect_to weightlosses_path(user_id: @user.id)
+    user = User.find_by(email: params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
+      redirect_to weightlosses_path, notice: 'ログインしました'
     else
-      render :new, status: :unprocessable_entity
+      if params[:user][:email].blank?
+        flash.now[:alert] = 'メールアドレスを入力してください'
+      elsif params[:user][:password].blank?
+        flash.now[:alert] = 'パスワードを入力してください'
+      else
+        flash.now[:alert] = 'メールアドレスまたはパスワードが正しくありません'
+      end
+      render :new
     end
   end
 
