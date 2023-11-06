@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :users
-  
+  get 'my_posts', to: 'weightlosses#my_posts', as: 'my_posts'
 end

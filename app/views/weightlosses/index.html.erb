@@ -8,28 +8,33 @@
           <%= submit_tag "選択" %>
         <% end %>
       </div>
-      
-      <% if params[:user_id].present? && current_user&.valid_password?(params[:password]) %>
-        <% user = User.find_by(id: params[:user_id]) %>
-        <% if user %>
-          <h2><%= user.name %>の減量情報</h2>
-          <% @weightlosses.where(user_id: params[:user_id]).each do |weightloss| %>
-            
+
+      <% if params[:user_id].present? %>
+        <% if current_user&.valid_password?(params[:password]) %>
+          <% user = User.find_by(id: params[:user_id]) %>
+          <% if user %>
+            <h2><%= user.name %>の減量情報</h2>
+            <% @weightlosses.where(user_id: params[:user_id]).each do |weightloss| %>
+              <!-- ユーザーの減量情報を表示 -->
+            <% end %>
           <% end %>
+        <% else %>
+          <p>パスワードが正しくありません。</p>
         <% end %>
-      <% else %>
-        <p>パスワードが正しくありません。</p>
       <% end %>
-     
+
+      
       <%= month_calendar do |date| %>
         <%= date.day %>
         <% weightloss = @weightlosses.find_by(created_at: date.beginning_of_day..date.end_of_day) %>
-        <% if weightloss && current_user&.valid_password?(params[:password]) %>
-          <div>
-            <%= link_to weightloss_path(weightloss) do %>
-              情報あるよ
-            <% end %>
-          </div>
+        <% if weightloss %>
+          <% if current_user == User.find_by(id: weightloss.user_id) || (params[:user_id].present? && current_user&.valid_password?(params[:password])) %>
+            <div>
+              <%= link_to weightloss_path(weightloss) do %>
+                情報あるよ
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -37,4 +42,3 @@
   <div class="card__wrapper">
   </div>
 </main>
-
