@@ -18,16 +18,21 @@ class WeightlossesController < ApplicationController
 
   def create
     @user = current_user
+    @weightloss = Weightloss.find_by(user_id: @user.id, created_at: Date.today.beginning_of_day..Date.today.end_of_day)
+    if @weightloss
+      redirect_to weightlosses_path, alert: "本日は既に投稿されています。"
+      return
+    end
+
     @weightloss = Weightloss.new(weightloss_params)
     @weightloss.user = @user
-
     if @weightloss.save
       redirect_to weightlosses_path, notice: '投稿が保存されました。'
     else
       if params[:user].present? && params[:user][:email].present? && params[:user][:password].present?
         user = User.find_by(email: params[:user][:email])
         if user && user.authenticate(params[:user][:password])
-          redirect_to weightlosses_path, notice: 'ログインしました'
+          redirect_to weightlosses_path(@user), notice: 'ログインしました'
         else
           if params[:user][:email].blank?
             flash.now[:alert] = 'メールアドレスを入力してください'
@@ -92,4 +97,5 @@ class WeightlossesController < ApplicationController
   def weightloss_params
     params.require(:weightloss).permit(:weight, :faigue, :exercise, :meal, :sleep).merge(user_id: current_user.id)
   end
+
 end

@@ -8,6 +8,7 @@
           <%= submit_tag "選択" %>
         <% end %>
       </div>
+      
       <% if params[:user_id].present? && current_user&.valid_password?(params[:password]) %>
         <% user = User.find_by(id: params[:user_id]) %>
         <% if user %>

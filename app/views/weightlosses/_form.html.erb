@@ -5,9 +5,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :sleep, "睡眠時間(h)" %><br />
-    <%= f.select :sleep, options_for_select((0..24).step(0.5).map { |t| ["#{t}h", t] }, @weightloss.sleep), {}, class: 'form__dropdown', id: 'weightloss_sleep' %>
-  </div>
+  <%= f.label :sleep, "睡眠時間(h)" %><br />
+  <%= f.select :sleep, options_for_select((0..24).step(0.5).map { |t| ["#{t}h", t] }, @weightloss.sleep), {}, { class: 'form__dropdown', id: 'weightloss_sleep' } %>
+ </div>
 
   <div class="field">
     <%= f.label :faigue, "起床時の疲労度" %><br />
