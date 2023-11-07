@@ -1,4 +1,15 @@
 <%= form_with model: @weightloss, local: true do |f| %>
+<% if @weightloss.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@weightloss.errors.count, "error") %> </h2>
+
+    <ul>
+    <% @weightloss.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
   <div class="field">
     <%= f.label :weight, "体重(kg)" %><br />
     <%= f.text_field :weight, class: :form__text, id: "weightloss_weight" %>
