@@ -31,7 +31,7 @@
 - コメント機能  
   投稿内容に対しコメントする事ができます
 - 投稿者の選択機能  
-  トップページで見たい選手をプルダウンで指定して、パスワード入力（ログインパスワードと同じ）する事で投稿一覧が表示されます
+  トップページで見たい選手をプルダウンで指定して、パスワード（1129）を入力する事で各選手の投稿一覧に遷移し確認することができます
 - [![Image from Gyazo](https://i.gyazo.com/ea7b0c9b137e4ff30f560fc6a031993f.png)](https://gyazo.com/ea7b0c9b137e4ff30f560fc6a031993f)
 - [![Image from Gyazo](https://i.gyazo.com/f0e9206419d807653ca3ced518345cd4.png)](https://gyazo.com/f0e9206419d807653ca3ced518345cd4)
 - [![Image from Gyazo](https://i.gyazo.com/a076dfce637c6f2a960b13901a30713e.png)](https://gyazo.com/a076dfce637c6f2a960b13901a30713e)
