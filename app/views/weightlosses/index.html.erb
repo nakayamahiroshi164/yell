@@ -10,7 +10,7 @@
       </div>
 
       <% if params[:user_id].present? %>
-        <% if params[:password] == "1129" %>
+        <% if params[:password] == "1129296" %>
           <% user = User.find_by(id: params[:user_id]) %>
           <% if user %>
             <h2><%= user.name %>の減量情報</h2>
