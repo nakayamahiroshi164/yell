@@ -26,6 +26,13 @@ class WeightlossesController < ApplicationController
 
     @weightloss = Weightloss.new(weightloss_params)
     @weightloss.user = @user
+
+    unless valid_weight?(@weightloss.weight)
+      @weightloss.errors.add(:weight, "は正しい形式で入力してください。")
+      render :new, status: :unprocessable_entity
+      return
+    end
+
     if @weightloss.save
       redirect_to weightlosses_path, notice: '投稿が保存されました。'
     else
@@ -93,6 +100,10 @@ class WeightlossesController < ApplicationController
   end
 
   private
+
+  def valid_weight?(weight)
+    /\A\d+(\.\d{1})?\z/.match?(weight.to_s)
+  end
 
   def weightloss_params
     params.require(:weightloss).permit(:weight, :faigue, :exercise, :meal, :sleep).merge(user_id: current_user.id)
