@@ -8,6 +8,9 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include("Nameを入力してください")
     end
     it 'emailが空では登録できない' do
+      user = User.new(name: 'test', email: '', password: '000000', password_confirmation: '000000')
+      user.valid?
+      expect(user.errors.full_messages).to include("Eメールを入力してください")
     end
   end
 end
