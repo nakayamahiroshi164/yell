@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :weightlosses
   has_many :comments
        
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 6 }
   validates :email, presence: true
   validates :password, presence: true, length: { minimum: 6, maximum: 30 }
   validates :password_confirmation, presence: true, length: { minimum: 6, maximum: 30 }
